@@ -1,7 +1,11 @@
 import React from "react";
 
 export const RatingForm = () => {
-  const ratingValues = [1, 2, 3, 4, 5];
+  const ratingsTemplate = [1, 2, 3, 4, 5].map((rating) => (
+    <label key={rating} htmlFor={rating}>
+      <input type="radio" name="rating score" id={rating} />
+    </label>
+  ));
 
   return (
     <div>
@@ -9,12 +13,7 @@ export const RatingForm = () => {
       <form action="" method="post" id="ratingForm">
         <fieldset>
           <legend>group of radio's buttons</legend>
-
-          {ratingValues.map((singleRating) => (
-            <label key={singleRating} htmlFor={singleRating}>
-              <input type="radio" name="rating score" id={singleRating} />
-            </label>
-          ))}
+          {ratingsTemplate}
         </fieldset>
 
         <button type="submit" form="ratingForm">
