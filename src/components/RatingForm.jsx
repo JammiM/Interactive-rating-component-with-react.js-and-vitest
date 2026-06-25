@@ -1,4 +1,5 @@
 import React from "react";
+import iconStar from "../assets/images/icon-star.svg";
 
 export const RatingForm = () => {
   const ratingsTemplate = [1, 2, 3, 4, 5].map((rating) => (
@@ -9,7 +10,16 @@ export const RatingForm = () => {
 
   return (
     <div>
-      RatingForm
+      <picture>
+        <img src={iconStar} alt="" srcSet="" />
+      </picture>
+      <h1>How did we do?</h1>
+
+      <p>
+        Please let us know how we did with your support request. All feedback is
+        appreciated to help us improve our offering!
+      </p>
+
       <form action="" method="post" id="ratingForm">
         <fieldset>
           <legend>group of radio's buttons</legend>
@@ -17,7 +27,7 @@ export const RatingForm = () => {
         </fieldset>
 
         <button type="submit" form="ratingForm">
-          submit
+          Submit
         </button>
       </form>
     </div>
