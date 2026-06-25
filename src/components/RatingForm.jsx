@@ -4,6 +4,7 @@ import iconStar from "../assets/images/icon-star.svg";
 export const RatingForm = () => {
   const ratingsTemplate = [1, 2, 3, 4, 5].map((rating) => (
     <label key={rating} htmlFor={rating}>
+      {rating}
       <input type="radio" name="rating score" id={rating} />
     </label>
   ));
