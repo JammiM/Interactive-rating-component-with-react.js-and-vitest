@@ -6,7 +6,7 @@ export const RatingResponse = () => {
   return (
     <div>
       <picture>
-        <img src={thankYouImg} alt="" srcset="" />
+        <img src={thankYouImg} alt="" srcSet="" />
       </picture>
       <p>You selected 3 out of 5</p>
       <p>Thank you!</p>

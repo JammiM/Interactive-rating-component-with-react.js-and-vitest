@@ -5,9 +5,8 @@ import { RatingResponse } from "./RatingResponse";
 export const RatingCard = () => {
   return (
     <div>
-      RatingCard
-      <RatingResponse />
       <RatingForm />
+      <RatingResponse />
     </div>
   );
 };
