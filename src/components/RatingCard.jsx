@@ -4,9 +4,9 @@ import { RatingResponse } from "./RatingResponse";
 
 export const RatingCard = () => {
   return (
-    <div>
+    <main>
       <RatingForm />
       <RatingResponse />
-    </div>
+    </main>
   );
 };
