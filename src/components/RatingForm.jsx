@@ -1,31 +1,19 @@
 import React, { useState } from "react";
 import iconStar from "../assets/images/icon-star.svg";
 
-export const RatingForm = () => {
-  const [ratingScore, setRatingScore] = useState(0);
-
-  function handleRatingClick(e) {
-    setRatingScore(e.target.value);
-  }
-
+export const RatingForm = ({ handleRatingClick }) => {
   function handleFormSubmit(e) {
     e.preventDefault();
 
     const formData = new FormData(e.currentTarget);
 
-    setRatingScore(formData.get("rating score"));
+    handleRatingClick(formData.get("rating score"));
   }
 
   const ratingsTemplate = [1, 2, 3, 4, 5].map((rating) => (
     <label key={rating} htmlFor={rating}>
       {rating}
-      <input
-        type="radio"
-        name="rating score"
-        id={rating}
-        value={rating}
-        onChange={handleRatingClick}
-      />
+      <input type="radio" name="rating score" id={rating} value={rating} />
     </label>
   ));
 
@@ -50,7 +38,6 @@ export const RatingForm = () => {
         <button type="submit" form="ratingForm">
           Submit
         </button>
-        <p>You selected {ratingScore} out of 5</p>
       </form>
     </div>
   );
