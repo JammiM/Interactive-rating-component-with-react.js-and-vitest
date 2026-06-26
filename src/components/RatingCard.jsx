@@ -5,20 +5,25 @@ import { RatingResponse } from "./RatingResponse";
 export const RatingCard = () => {
   const [ratingScore, setRatingScore] = useState(0);
 
+  const ratingAsNumber = Number(ratingScore);
+
   function handleRatingClick(e) {
     setRatingScore(e);
   }
 
   return (
     <main>
-      <RatingForm
-        ratingScore={ratingScore}
-        handleRatingClick={handleRatingClick}
-      />
-      <RatingResponse
-        ratingScore={ratingScore}
-        handleRatingClick={handleRatingClick}
-      />
+      {ratingAsNumber > 0 ? (
+        <RatingResponse
+          ratingScore={ratingScore}
+          handleRatingClick={handleRatingClick}
+        />
+      ) : (
+        <RatingForm
+          ratingScore={ratingScore}
+          handleRatingClick={handleRatingClick}
+        />
+      )}
     </main>
   );
 };
