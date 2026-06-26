@@ -8,6 +8,14 @@ export const RatingForm = () => {
     setRatingScore(e.target.value);
   }
 
+  function handleFormSubmit(e) {
+    e.preventDefault();
+
+    const formData = new FormData(e.currentTarget);
+
+    setRatingScore(formData.get("rating score"));
+  }
+
   const ratingsTemplate = [1, 2, 3, 4, 5].map((rating) => (
     <label key={rating} htmlFor={rating}>
       {rating}
@@ -33,7 +41,7 @@ export const RatingForm = () => {
         appreciated to help us improve our offering!
       </p>
 
-      <form action="" method="post" id="ratingForm">
+      <form action="" method="post" id="ratingForm" onSubmit={handleFormSubmit}>
         <fieldset>
           <legend>group of radio's buttons</legend>
           {ratingsTemplate}
