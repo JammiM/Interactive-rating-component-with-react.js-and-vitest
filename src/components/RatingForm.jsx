@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import iconStar from "../assets/images/icon-star.svg";
 
 export const RatingForm = ({ handleRatingClick }) => {
+  const [isRated, setIsRated] = useState(false);
+
   function handleFormSubmit(e) {
     e.preventDefault();
 
@@ -35,7 +37,7 @@ export const RatingForm = ({ handleRatingClick }) => {
           {ratingsTemplate}
         </fieldset>
 
-        <button type="submit" form="ratingForm">
+        <button type="submit" disabled={isRated} form="ratingForm">
           Submit
         </button>
       </form>
