@@ -15,7 +15,15 @@ export const RatingForm = ({ handleRatingClick }) => {
   const ratingsTemplate = [1, 2, 3, 4, 5].map((rating) => (
     <label key={rating} htmlFor={rating}>
       {rating}
-      <input type="radio" name="rating score" id={rating} value={rating} />
+      <input
+        type="radio"
+        name="rating score"
+        id={rating}
+        value={rating}
+        onClick={() => {
+          setIsRated((prev) => !prev);
+        }}
+      />
     </label>
   ));
 
