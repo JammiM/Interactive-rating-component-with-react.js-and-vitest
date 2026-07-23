@@ -39,3 +39,20 @@ describe("RatingForm", () => {
     expect(radioButtons).toHaveLength(5);
   });
 });
+
+it("should call handleRatingClick with the selected rating when the form is submitted", () => {
+  const handleRatingClickMock = vi.fn();
+  render(<RatingForm handleRatingClick={handleRatingClickMock} />);
+
+  const radioButton = screen.getByLabelText("4");
+  act(() => {
+    radioButton.click();
+  });
+
+  const submitButtonElement = screen.getByRole("button", { name: /submit/i });
+  act(() => {
+    submitButtonElement.click();
+  });
+
+  expect(handleRatingClickMock).toHaveBeenCalledWith("4");
+});
