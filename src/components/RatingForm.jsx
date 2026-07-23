@@ -45,7 +45,7 @@ export const RatingForm = ({ handleRatingClick }) => {
           {ratingsTemplate}
         </fieldset>
 
-        <button type="submit" disabled={isRated} form="ratingForm">
+        <button type="submit" disabled={!isRated} form="ratingForm">
           Submit
         </button>
       </form>
