@@ -30,7 +30,7 @@ export const RatingForm = ({ handleRatingClick }) => {
   return (
     <div>
       <picture>
-        <img src={iconStar} alt="" srcSet="" />
+        <img src={new URL(iconStar, import.meta.url).href} alt="" />
       </picture>
       <h1>How did we do?</h1>
 
