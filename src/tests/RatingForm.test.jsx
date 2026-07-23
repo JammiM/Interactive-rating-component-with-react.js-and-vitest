@@ -1,6 +1,6 @@
 import { describe } from "vitest";
 
-import { render, screen } from "@testing-library/react";
+import { render, screen, act } from "@testing-library/react";
 import { RatingForm } from "../components/RatingForm";
 
 describe("RatingForm", () => {
@@ -23,7 +23,10 @@ describe("RatingForm", () => {
     render(<RatingForm />);
 
     const radioButton = screen.getByLabelText("3");
-    radioButton.click();
+
+    act(() => {
+      radioButton.click();
+    });
 
     const submitButtonElement = screen.getByRole("button", { name: /submit/i });
     expect(submitButtonElement).toBeEnabled();
