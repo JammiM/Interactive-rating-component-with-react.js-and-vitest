@@ -178,4 +178,170 @@ describe("RatingForm", () => {
       expect(label).toBeInTheDocument();
     });
   });
+
+  it("should better accessibility: each radio button should have an accessible name and be focusable", () => {
+    render(<RatingForm />);
+
+    const radioButtons = screen.getAllByRole("radio");
+
+    radioButtons.forEach((radioButton) => {
+      // Check if the radio button has an accessible name
+      expect(radioButton).toHaveAccessibleName();
+
+      // Check if the radio button is focusable
+      expect(radioButton.tabIndex).toBeGreaterThanOrEqual(0);
+    });
+  });
+
+  it("should have a submit button with an accessible name and be focusable", () => {
+    render(<RatingForm />);
+
+    const submitButton = screen.getByRole("button", { name: /submit/i });
+
+    // Check if the submit button has an accessible name
+    expect(submitButton).toHaveAccessibleName();
+
+    // Check if the submit button is focusable
+    expect(submitButton.tabIndex).toBeGreaterThanOrEqual(0);
+  });
+
+  it("should have a fieldset and legend for the radio buttons with accessible name", () => {
+    render(<RatingForm />);
+
+    const fieldset = screen.getByRole("group", {
+      name: /group of radio's buttons/i,
+    });
+    expect(fieldset).toBeInTheDocument();
+
+    const legend = screen.getByText(/group of radio's buttons/i);
+    expect(legend).toBeInTheDocument();
+
+    // Check if the fieldset has an accessible name
+    expect(fieldset).toHaveAccessibleName();
+  });
+
+  it("should have a fieldset and legend for the radio buttons with accessible name", () => {
+    render(<RatingForm />);
+
+    const fieldset = screen.getByRole("group", {
+      name: /group of radio's buttons/i,
+    });
+    expect(fieldset).toBeInTheDocument();
+
+    const legend = screen.getByText(/group of radio's buttons/i);
+    expect(legend).toBeInTheDocument();
+
+    // Check if the fieldset has an accessible name
+    expect(fieldset).toHaveAccessibleName();
+  });
+
+  it("should have a fieldset and legend for the radio buttons with accessible name", () => {
+    render(<RatingForm />);
+
+    const fieldset = screen.getByRole("group", {
+      name: /group of radio's buttons/i,
+    });
+    expect(fieldset).toBeInTheDocument();
+
+    const legend = screen.getByText(/group of radio's buttons/i);
+    expect(legend).toBeInTheDocument();
+
+    // Check if the fieldset has an accessible name
+    expect(fieldset).toHaveAccessibleName();
+  });
+
+  it("should click one radio button and then click another radio button, the first one should be unchecked", () => {
+    render(<RatingForm />);
+
+    const radioButtons = screen.getAllByRole("radio");
+
+    // Click on the first radio button
+    act(() => {
+      radioButtons[0].click();
+    });
+    expect(radioButtons[0]).toBeChecked();
+
+    // Click on the second radio button
+    act(() => {
+      radioButtons[1].click();
+    });
+    expect(radioButtons[1]).toBeChecked();
+    expect(radioButtons[0]).not.toBeChecked(); // The first one should now be unchecked
+  });
+
+  it("should click one radio button and then click the same radio button again, it should remain checked", () => {
+    render(<RatingForm />);
+
+    const radioButtons = screen.getAllByRole("radio");
+
+    // Click on the first radio button
+    act(() => {
+      radioButtons[0].click();
+    });
+    expect(radioButtons[0]).toBeChecked();
+
+    // Click on the first radio button again
+    act(() => {
+      radioButtons[0].click();
+    });
+    expect(radioButtons[0]).toBeChecked(); // The first one should remain checked
+  });
+
+  it("should click one radio button and then click the same radio button again, it should remain checked", () => {
+    render(<RatingForm />);
+
+    const radioButtons = screen.getAllByRole("radio");
+
+    // Click on the first radio button
+    act(() => {
+      radioButtons[0].click();
+    });
+    expect(radioButtons[0]).toBeChecked();
+
+    // Click on the first radio button again
+    act(() => {
+      radioButtons[0].click();
+    });
+    expect(radioButtons[0]).toBeChecked(); // The first one should remain checked
+  });
+
+  it("should click one radio button and then click the same radio button again, it should remain checked", () => {
+    render(<RatingForm />);
+
+    const radioButtons = screen.getAllByRole("radio");
+
+    // Click on the first radio button
+    act(() => {
+      radioButtons[0].click();
+    });
+    expect(radioButtons[0]).toBeChecked();
+
+    // Click on the first radio button again
+    act(() => {
+      radioButtons[0].click();
+    });
+    expect(radioButtons[0]).toBeChecked(); // The first one should remain checked
+  });
+
+  it("should click one radio btn and then another btn and the submit button should be enabled", () => {
+    render(<RatingForm />);
+
+    const radioButtons = screen.getAllByRole("radio");
+
+    // Click on the first radio button
+    act(() => {
+      radioButtons[0].click();
+    });
+    expect(radioButtons[0]).toBeChecked();
+
+    // Click on the second radio button
+    act(() => {
+      radioButtons[1].click();
+    });
+    expect(radioButtons[1]).toBeChecked();
+    expect(radioButtons[0]).not.toBeChecked(); // The first one should now be unchecked
+
+    const submitButtonElement = screen.getByRole("button", { name: /submit/i });
+    expect(submitButtonElement).toBeEnabled();
+  });
 });
