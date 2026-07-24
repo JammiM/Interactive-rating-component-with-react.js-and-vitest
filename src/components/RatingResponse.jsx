@@ -1,5 +1,3 @@
-import React from "react";
-
 import thankYouImg from "../assets/images/illustration-thank-you.svg";
 
 export const RatingResponse = ({ ratingScore }) => {

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import iconStar from "../assets/images/icon-star.svg";
 
 export const RatingForm = ({ handleRatingClick }) => {
