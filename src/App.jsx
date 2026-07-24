@@ -1,5 +1,6 @@
 import "./App.css";
 import { RatingCard } from "./components/RatingCard";
+import "./axeTestingHandler";
 
 function App() {
   return (
