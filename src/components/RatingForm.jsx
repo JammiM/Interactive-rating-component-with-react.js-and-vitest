@@ -12,6 +12,10 @@ export const RatingForm = ({ handleRatingClick }) => {
     handleRatingClick(formData.get("rating score"));
   }
 
+  function handleRatingChange() {
+    setIsRated(true);
+  }
+
   const ratingsTemplate = [1, 2, 3, 4, 5].map((rating) => (
     <label key={rating} htmlFor={rating}>
       {rating}
@@ -20,9 +24,7 @@ export const RatingForm = ({ handleRatingClick }) => {
         name="rating score"
         id={rating}
         value={rating}
-        onClick={() => {
-          setIsRated((prev) => !prev);
-        }}
+        onChange={handleRatingChange}
       />
     </label>
   ));
