@@ -42,8 +42,8 @@ export const RatingForm = ({ handleRatingClick }) => {
       </p>
 
       <form action="" method="post" id="ratingForm" onSubmit={handleFormSubmit}>
-        <fieldset>
-          <legend>group of radio's buttons</legend>
+        <fieldset style={{ border: "none", padding: 0, margin: 0 }}>
+          <legend className="sr-only">group of radio's buttons</legend>
           {ratingsTemplate}
         </fieldset>
 
