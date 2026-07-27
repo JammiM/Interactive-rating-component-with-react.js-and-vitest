@@ -13,17 +13,19 @@ export const RatingCard = () => {
 
   return (
     <main>
-      {ratingAsNumber > 0 ? (
-        <RatingResponse
-          ratingScore={ratingScore}
-          handleRatingClick={handleRatingClick}
-        />
-      ) : (
-        <RatingForm
-          ratingScore={ratingScore}
-          handleRatingClick={handleRatingClick}
-        />
-      )}
+      <article id="rating-card">
+        {ratingAsNumber > 0 ? (
+          <RatingResponse
+            ratingScore={ratingScore}
+            handleRatingClick={handleRatingClick}
+          />
+        ) : (
+          <RatingForm
+            ratingScore={ratingScore}
+            handleRatingClick={handleRatingClick}
+          />
+        )}
+      </article>
     </main>
   );
 };
