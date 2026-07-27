@@ -198,6 +198,10 @@
   --fw-light: 100;
   --fw-regular: 400;
   --fw-bold: 900;
+
+  --ff-overpass: "Overpass", sans-serif;
+
+  font-optical-sizing: auto;
 }
 
 main {
@@ -206,6 +210,7 @@ main {
   height: 100dvh;
   display: grid;
   place-content: center;
+  font-family: var(--ff-overpass);
 }
 
 #rating-card {

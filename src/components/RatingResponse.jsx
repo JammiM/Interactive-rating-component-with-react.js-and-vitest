@@ -7,7 +7,7 @@ export const RatingResponse = ({ ratingScore }) => {
         <img src={thankYouImg} alt="" srcSet="" />
       </picture>
       <p>You selected {ratingScore} out of 5</p>
-      <p>Thank you!</p>
+      <h1 className="card-title">Thank you!</h1>
       <p>
         We appreciate you taking the time to give a rating. If you ever need
         more support, don&rsquo;t hesitate to get in touch!
