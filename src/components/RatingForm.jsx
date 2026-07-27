@@ -17,15 +17,16 @@ export const RatingForm = ({ handleRatingClick }) => {
   }
 
   const ratingsTemplate = [1, 2, 3, 4, 5].map((rating) => (
-    <label key={rating} htmlFor={rating}>
-      {rating}
+    <label key={rating} htmlFor={rating} className="rating-label">
       <input
         type="radio"
         name="rating score"
         id={rating}
         value={rating}
         onChange={handleRatingChange}
+        className="sr-only-input"
       />
+      <span className="rating-circle">{rating}</span>
     </label>
   ));
 
@@ -42,9 +43,13 @@ export const RatingForm = ({ handleRatingClick }) => {
       </p>
 
       <form action="" method="post" id="ratingForm" onSubmit={handleFormSubmit}>
-        <fieldset style={{ border: "none", padding: 0, margin: 0 }}>
-          <legend className="sr-only">group of radio's buttons</legend>
-          {ratingsTemplate}
+        <fieldset
+          style={{ border: "none", padding: 0, margin: 0 }}
+          role="radiogroup"
+          aria-label="Rate our service from 1 to 5"
+        >
+          <legend className="sr-only">Select a rating</legend>
+          <div className="rating-buttons">{ratingsTemplate}</div>
         </fieldset>
 
         <button type="submit" disabled={!isRated} form="ratingForm">

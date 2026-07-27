@@ -283,3 +283,64 @@ main {
     color: contrast-color(var(--clr-neutral-white));
   }
 }
+
+/* Rating Buttons Container */
+.rating-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 32px;
+}
+
+/* Hide default radio elements visually but keep them interactive */
+.sr-only-input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.rating-label {
+  cursor: pointer;
+}
+
+.rating-circle {
+  background-color: hsla(216, 12%, 54%, 0.1);
+  color: var(--medium-grey);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.2s ease;
+
+  /* &:active {
+    background-color: var(--clr-neutral-white);
+  } */
+}
+
+.rating-label:hover .rating-circle {
+  /* background-color: var(--light-grey); */
+  background-color: var(--clr-primary-orange-500);
+  /* color: var(--white); */
+  color: contrast-color(var(--clr-primary-orange-500));
+}
+
+/* Target checked native radio styling */
+.sr-only-input:checked + .rating-circle {
+  background-color: var(--clr-neutral-white);
+  /* background-color: blue; */
+  color: contrast-color(var(--clr-neutral-white));
+}
+
+/* Clear, high-contrast focus indicator for keyboard navigation */
+.sr-only-input:focus-visible + .rating-circle {
+  /* outline: 3px solid var(--white); */
+  outline: 3px solid yellow;
+
+  outline-offset: 3px;
+}
+
+.card-title {
+}
