@@ -32,7 +32,7 @@ export const RatingForm = ({ handleRatingClick }) => {
 
   return (
     <div>
-      <picture>
+      <picture className="rating-circle">
         <img src={new URL(iconStar, import.meta.url).href} alt="" />
       </picture>
       <h1 className="card-title">How did we do?</h1>
