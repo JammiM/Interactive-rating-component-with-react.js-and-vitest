@@ -24,14 +24,14 @@ export const RatingForm = ({ handleRatingClick }) => {
         id={rating}
         value={rating}
         onChange={handleRatingChange}
-        className="sr-only-input"
+        className="sr-only"
       />
       <span className="rating-circle">{rating}</span>
     </label>
   ));
 
   return (
-    <div>
+    <div className="card-rating-form">
       <picture className="rating-circle">
         <img src={new URL(iconStar, import.meta.url).href} alt="" />
       </picture>
