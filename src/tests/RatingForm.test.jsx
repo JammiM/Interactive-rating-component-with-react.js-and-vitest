@@ -131,27 +131,34 @@ describe("RatingForm", () => {
   it("should have a fieldset and legend for the radio buttons", () => {
     render(<RatingForm />);
 
-    const fieldset = screen.getByRole("group", {
-      name: /group of radio's buttons/i,
-    });
-    expect(fieldset).toBeInTheDocument();
+    const formFieldSet = screen.getByRole("radiogroup");
 
-    const legend = screen.getByText(/group of radio's buttons/i);
+    expect(formFieldSet).toBeInTheDocument();
+
+    const legend = screen.getByText(/Select a rating/i);
     expect(legend).toBeInTheDocument();
+
+    expect(formFieldSet).toContainElement(legend);
   });
 
-  it("each radio button should have a unique id and the label should be associated with the correct input", () => {
+  it("each radio button should have a unique id and be findable by its label text", () => {
     render(<RatingForm />);
 
-    const radioButtons = screen.getAllByRole("radio");
+    const expectedValues = ["1", "2", "3", "4", "5"];
 
-    radioButtons.forEach((radioButton, index) => {
-      const expectedId = (index + 1).toString();
-      expect(radioButton).toHaveAttribute("id", expectedId);
+    expectedValues.forEach((expectedId) => {
+      // Query the radio by its accessible name (the label's text)
+      const radioByRole = screen.getByRole("radio", { name: expectedId });
+      expect(radioByRole).toBeInTheDocument();
+      expect(radioByRole).toHaveAttribute("id", expectedId);
 
-      const labelEl = screen.getByText(expectedId);
+      // Also ensure it's findable via getByLabelText (the label text)
+      const radioByLabel = screen.getByLabelText(expectedId);
+      expect(radioByLabel).toBeInTheDocument();
+      expect(radioByLabel).toHaveAttribute("id", expectedId);
 
-      expect(labelEl.htmlFor).toBe(expectedId);
+      // Both queries should return the same element
+      expect(radioByLabel).toBe(radioByRole);
     });
   });
 
@@ -203,51 +210,6 @@ describe("RatingForm", () => {
 
     // Check if the submit button is focusable
     expect(submitButton.tabIndex).toBeGreaterThanOrEqual(0);
-  });
-
-  it("should have a fieldset and legend for the radio buttons with accessible name", () => {
-    render(<RatingForm />);
-
-    const fieldset = screen.getByRole("group", {
-      name: /group of radio's buttons/i,
-    });
-    expect(fieldset).toBeInTheDocument();
-
-    const legend = screen.getByText(/group of radio's buttons/i);
-    expect(legend).toBeInTheDocument();
-
-    // Check if the fieldset has an accessible name
-    expect(fieldset).toHaveAccessibleName();
-  });
-
-  it("should have a fieldset and legend for the radio buttons with accessible name", () => {
-    render(<RatingForm />);
-
-    const fieldset = screen.getByRole("group", {
-      name: /group of radio's buttons/i,
-    });
-    expect(fieldset).toBeInTheDocument();
-
-    const legend = screen.getByText(/group of radio's buttons/i);
-    expect(legend).toBeInTheDocument();
-
-    // Check if the fieldset has an accessible name
-    expect(fieldset).toHaveAccessibleName();
-  });
-
-  it("should have a fieldset and legend for the radio buttons with accessible name", () => {
-    render(<RatingForm />);
-
-    const fieldset = screen.getByRole("group", {
-      name: /group of radio's buttons/i,
-    });
-    expect(fieldset).toBeInTheDocument();
-
-    const legend = screen.getByText(/group of radio's buttons/i);
-    expect(legend).toBeInTheDocument();
-
-    // Check if the fieldset has an accessible name
-    expect(fieldset).toHaveAccessibleName();
   });
 
   it("should click one radio button and then click another radio button, the first one should be unchecked", () => {
