@@ -2,7 +2,7 @@ import config from "./vite.config";
 import { defineConfig } from "vitest/config";
 
 export default defineConfig({
-  pllugins: [...config.plugins],
+  plugins: [...config.plugins],
   test: {
     globals: true,
     environment: "jsdom",
