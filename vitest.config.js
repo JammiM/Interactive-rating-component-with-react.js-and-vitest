@@ -22,7 +22,11 @@ export default defineConfig({
           globals: true,
           browser: {
             enabled: true,
-            provider: playwright(),
+            provider: playwright({
+              launchOptions: {
+                slowMo: 500, // Slow down interactions by 500ms to observe test execution
+              },
+            }),
             instances: [{ browser: "chromium" }],
           },
         },
