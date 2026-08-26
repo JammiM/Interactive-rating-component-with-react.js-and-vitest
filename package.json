@@ -9,7 +9,10 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "test": "vitest run",
-    "test:watch": "vitest watch"
+    "test:watch": "vitest watch",
+    "browsertest": "npx vitest --browser=chromium",
+    "e2e": "vitest run test --project browser",
+    "unit": "vitest run test --project unit"
   },
   "dependencies": {
     "react": "^19.2.7",
@@ -25,6 +28,8 @@
     "@types/react": "^19.2.17",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^6.0.2",
+    "@vitest/browser": "^4.1.11",
+    "@vitest/browser-playwright": "^4.1.11",
     "axe-core": "^4.12.1",
     "babel-plugin-react-compiler": "^1.0.0",
     "eslint": "^10.5.0",
@@ -33,6 +38,7 @@
     "globals": "^17.6.0",
     "jsdom": "^29.1.1",
     "vite": "^8.1.0",
-    "vitest": "^4.1.10"
+    "vitest": "^4.1.11",
+    "vitest-browser-react": "^2.2.0"
   }
 }
