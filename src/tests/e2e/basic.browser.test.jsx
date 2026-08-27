@@ -6,7 +6,7 @@ import { page, userEvent } from "vitest/browser";
 
 import App from "../../App";
 
-test("Renders the correct text content", async () => {
+test("Tests the basic functionality, with a rating of 1", async () => {
   const screen = await render(<App />);
 
   await expect.element(screen.getByText(/How did we do?/i)).toBeInTheDocument();
@@ -30,4 +30,12 @@ test("Renders the correct text content", async () => {
   await screen.getByText("1").click();
 
   await expect.element(radio).toBeChecked();
+
+  await screen.getByRole("button", { name: "Submit" }).click();
+
+  await expect.element(screen.getByText(/Thank you!/i)).toBeInTheDocument();
+
+  await expect
+    .element(screen.getByText(/You selected 1 out of 5/i))
+    .toBeInTheDocument();
 });
