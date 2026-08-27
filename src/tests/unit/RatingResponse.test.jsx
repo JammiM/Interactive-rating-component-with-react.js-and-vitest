@@ -1,7 +1,7 @@
 import { describe, it, expect, afterEach, beforeEach, vi } from "vitest";
 
 import { render, screen, cleanup } from "@testing-library/react";
-import { RatingResponse } from "../components/RatingResponse";
+import { RatingResponse } from "../../components/RatingResponse";
 
 describe("RatingResponse tests", () => {
   beforeEach(() => {

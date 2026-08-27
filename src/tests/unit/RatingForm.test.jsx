@@ -1,7 +1,7 @@
 import { describe, it, expect, afterEach, beforeEach, vi } from "vitest";
 
 import { render, screen, act, cleanup } from "@testing-library/react";
-import { RatingForm } from "../components/RatingForm";
+import { RatingForm } from "../../components/RatingForm";
 
 describe("RatingForm", () => {
   let handleRatingClickMock;
