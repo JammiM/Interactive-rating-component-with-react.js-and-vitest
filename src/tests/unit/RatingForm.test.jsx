@@ -16,6 +16,12 @@ describe("RatingForm", () => {
     vi.restoreAllMocks();
   });
 
+  it("should render a valid HTML component", () => {
+    const { container } = render(<RatingForm />);
+
+    expect(container).toHTMLValidate();
+  });
+
   it("should render the component", () => {
     render(<RatingForm />);
 

@@ -42,12 +42,8 @@ export const RatingForm = ({ handleRatingClick }) => {
         appreciated to help us improve our offering!
       </p>
 
-      <form action="" method="post" id="ratingForm" onSubmit={handleFormSubmit}>
-        <fieldset
-          style={{ border: "none", padding: 0, margin: 0 }}
-          role="radiogroup"
-          aria-label="Rate our service from 1 to 5"
-        >
+      <form method="post" id="ratingForm" onSubmit={handleFormSubmit}>
+        <fieldset role="radiogroup" aria-label="Rate our service from 1 to 5">
           <legend className="sr-only">Select a rating</legend>
           <div className="rating-buttons">{ratingsTemplate}</div>
         </fieldset>
