@@ -13,6 +13,12 @@ describe("RatingResponse tests", () => {
     vi.restoreAllMocks();
   });
 
+  it("should render a valid HTML component", () => {
+    const { container } = render(<RatingResponse />);
+
+    expect(container).toHTMLValidate();
+  });
+
   it("should render the component", () => {
     render(<RatingResponse />);
 

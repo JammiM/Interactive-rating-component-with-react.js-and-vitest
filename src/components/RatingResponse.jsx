@@ -4,7 +4,7 @@ export const RatingResponse = ({ ratingScore }) => {
   return (
     <div className="card-rating-response">
       <picture>
-        <img src={thankYouImg} alt="" srcSet="" />
+        <img src={thankYouImg} alt="" />
       </picture>
       <p className="card-rating-score">You selected {ratingScore} out of 5</p>
       <h1 className="card-title">Thank you!</h1>
