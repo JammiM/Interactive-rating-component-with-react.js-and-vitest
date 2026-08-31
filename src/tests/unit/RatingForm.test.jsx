@@ -156,12 +156,12 @@ describe("RatingForm", () => {
       // Query the radio by its accessible name (the label's text)
       const radioByRole = screen.getByRole("radio", { name: expectedId });
       expect(radioByRole).toBeInTheDocument();
-      expect(radioByRole).toHaveAttribute("id", expectedId);
+      expect(radioByRole).toHaveAttribute("id", `label-id-${expectedId}`);
 
       // Also ensure it's findable via getByLabelText (the label text)
       const radioByLabel = screen.getByLabelText(expectedId);
       expect(radioByLabel).toBeInTheDocument();
-      expect(radioByLabel).toHaveAttribute("id", expectedId);
+      expect(radioByLabel).toHaveAttribute("id", `label-id-${expectedId}`);
 
       // Both queries should return the same element
       expect(radioByLabel).toBe(radioByRole);
