@@ -1,8 +1,5 @@
 import { render } from "vitest-browser-react";
-// In browser tests avoid importing from 'vitest' directly (it may bundle the runner into the browser build).
-// Vitest provides globals (test, describe, expect) in the test environment — use those instead.
-// The playwright `page` is also available via the browser provider when needed.
-import { page, userEvent } from "vitest/browser";
+import { test, expect } from "vitest";
 
 import App from "../../App";
 
