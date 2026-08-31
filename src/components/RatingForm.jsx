@@ -21,7 +21,7 @@ export const RatingForm = ({ handleRatingClick }) => {
       <input
         type="radio"
         name="rating score"
-        id={rating}
+        id={`label-id-${rating}`}
         value={rating}
         onChange={handleRatingChange}
         className="sr-only"
