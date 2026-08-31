@@ -4,6 +4,12 @@ import { describe, it, expect } from "vitest";
 import App from "../../App";
 
 describe("App", () => {
+  it("should render a valid HTML component", () => {
+    const { container } = render(<App />);
+
+    expect(container).toHTMLValidate();
+  });
+
   it("Renders the correct text content", () => {
     render(<App />);
 

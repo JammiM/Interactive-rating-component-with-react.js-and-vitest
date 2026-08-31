@@ -17,6 +17,12 @@ describe("RatingCard tests", () => {
     vi.restoreAllMocks();
   });
 
+  it("should render a valid HTML component", () => {
+    const { container } = render(<RatingCard />);
+
+    expect(container).toHTMLValidate();
+  });
+
   it("should render the component", () => {
     render(<RatingCard />);
 
